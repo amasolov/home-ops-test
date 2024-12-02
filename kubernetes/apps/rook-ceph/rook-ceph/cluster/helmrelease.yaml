@@ -67,7 +67,7 @@ spec:
       storage:
         useAllNodes: true
         useAllDevices: false
-        devicePathFilter: /pci0000:00/0000:00:05.0/0000:01:02.0/virtio3/host3/target3:0:0/3:0:0:1
+        devicePathFilter: /dev/sdb
         config:
           osdsPerDevice: "1"
       placement:
