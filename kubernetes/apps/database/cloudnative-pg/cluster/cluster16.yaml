@@ -34,7 +34,7 @@ spec:
         compression: bzip2
         maxParallel: 8
       destinationPath: s3://cloudnative-pg/
-      endpointURL: https://alexeymasolov.compat.objectstorage.ap-sydney-1.oraclecloud.com
+      endpointURL: https://sdcaonlxppbg.compat.objectstorage.ap-sydney-1.oraclecloud.com
       # Note: serverName version needs to be incremented
       # when recovering from an existing cnpg cluster
       serverName: &currentCluster postgres16-v0
@@ -47,9 +47,9 @@ spec:
           key: aws-secret-access-key
   # Note: previousCluster needs to be set to the name of the previous
   # cluster when recovering from an existing cnpg cluster
-  bootstrap:
-    recovery:
-      source: &previousCluster postgres16-v0
+  #bootstrap:
+  #  recovery:
+  #    source: &previousCluster postgres16-v0
   # Note: externalClusters is needed when recovering from an existing cnpg cluster
   externalClusters:
     - name: *previousCluster
