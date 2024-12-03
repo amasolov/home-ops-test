@@ -20,6 +20,8 @@ resources:
   - ./backube.yaml
   - ./piraeus.yaml
   - ./grafana.yaml
+  - ./emqx.yaml
+  
   
   
 
