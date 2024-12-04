@@ -5,7 +5,7 @@ kind: Cluster
 metadata:
   name: postgres16
 spec:
-  imageName: ghcr.io/cloudnative-pg/postgresql:16.6@sha256:3aec1d7cf46af3128c34e751a346f26bea6376aeba5395956afe0842d5d738b8
+  imageName: ghcr.io/clevyr/cloudnativepg-timescale:16-ts2
   instances: 3
   primaryUpdateStrategy: unsupervised
   storage:
@@ -15,6 +15,8 @@ spec:
     name: cloudnative-pg-secret
   enableSuperuserAccess: true
   postgresql:
+    shared_preload_libraries:
+      - timescaledb
     parameters:
       max_connections: "250"
       shared_buffers: 128MB
@@ -47,7 +49,10 @@ spec:
           key: aws-secret-access-key
   # Note: previousCluster needs to be set to the name of the previous
   # cluster when recovering from an existing cnpg cluster
-  #bootstrap:
+  bootstrap:
+    initdb:
+      postInitTemplateSQL:
+        - CREATE EXTENSION IF NOT EXISTS timescaledb;
   #  recovery:
   #    source: &previousCluster postgres16-v0
   # Note: externalClusters is needed when recovering from an existing cnpg cluster
