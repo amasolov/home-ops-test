@@ -1,0 +1,17 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: GitRepository
+metadata:
+  name: kubevirt
+  namespace: flux-system
+spec:
+  interval: 10m0s
+  url: https://github.com/JJGadgets/kubevirt-flux.git
+  ref:
+    branch: v1.1.0
+  ignore: |
+    # exclude all to whitelist
+    /*
+    # include operator (with CRDs) and CR to deploy KubeVirt
+    !/deploy
+# TODO: if KubeVirt CR used to actually deploy KubeVirt needs to be modified from defaults, maybe consider self-managing it?
