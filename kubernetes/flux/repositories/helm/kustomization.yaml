@@ -22,6 +22,8 @@ resources:
   - ./piraeus.yaml
   - ./grafana.yaml
   - ./emqx.yaml
+  - ./angelnu.yaml
+
 
 
 
