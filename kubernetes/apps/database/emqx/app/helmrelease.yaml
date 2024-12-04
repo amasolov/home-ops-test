@@ -30,3 +30,4 @@ spec:
     replicaCount: 2
     image:
       repository: ghcr.io/emqx/emqx-operator
+
