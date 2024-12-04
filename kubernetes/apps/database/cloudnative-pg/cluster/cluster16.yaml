@@ -53,8 +53,8 @@ spec:
     initdb:
       postInitTemplateSQL:
         - CREATE EXTENSION IF NOT EXISTS timescaledb;
-    recovery:
-      source: &previousCluster postgres16-v0
+  #  recovery:
+  #    source: &previousCluster postgres16-v0
   # Note: externalClusters is needed when recovering from an existing cnpg cluster
   externalClusters:
     - name: *previousCluster
