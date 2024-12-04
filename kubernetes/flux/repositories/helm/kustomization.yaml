@@ -4,6 +4,7 @@ kind: Kustomization
 resources:
   - ./bjw-s.yaml
   - ./cilium.yaml
+  - ./cloudnative-pg.yaml
   - ./coredns.yaml
   - ./jetstack.yaml
   - ./metrics-server.yaml
@@ -15,3 +16,14 @@ resources:
   - ./external-dns.yaml
   - ./ingress-nginx.yaml
   - ./k8s-gateway.yaml
+  - ./external-secrets.yaml
+  - ./rook-ceph.yaml
+  - ./backube.yaml
+  - ./piraeus.yaml
+  - ./grafana.yaml
+  - ./emqx.yaml
+
+
+
+
+
