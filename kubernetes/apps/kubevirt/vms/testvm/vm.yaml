@@ -33,8 +33,6 @@ spec:
               disk:
                 bus: virtio
             - name: cloudinitvolume
-              cdrom:
-                bus: virtio
         resources:
           requests:
             memory: 4Gi
