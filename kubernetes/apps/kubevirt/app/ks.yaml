@@ -35,7 +35,9 @@ spec:
             developerConfiguration:
               featureGates:
                 - VMPersistentState
+                - DataVolumes
                 - AutoResourceLimitsGate
+                - LiveMigration
       target:
         group: kubevirt.io
         kind: KubeVirt
