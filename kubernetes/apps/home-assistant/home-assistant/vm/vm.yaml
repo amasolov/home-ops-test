@@ -32,6 +32,12 @@ spec:
       domain:
         cpu:
           cores: 2
+        machine:
+          type: q35
+        firmware:
+          bootloader:
+            efi:
+              secureBoot: false
         devices:
           interfaces:
             - name: multus-iot
@@ -42,7 +48,7 @@ spec:
                 bus: virtio
         resources:
           requests:
-            memory: 4Gi
+            memory: 2Gi
       volumes:
         - dataVolume:
             name: home-assistant-dv
