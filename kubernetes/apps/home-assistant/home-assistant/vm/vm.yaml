@@ -14,11 +14,10 @@ spec:
             - ReadWriteOnce
           resources:
             requests:
-              storage: 20Gi
+              storage: 50Gi
         source:
           http:
-            #url: "https://github.com/home-assistant/operating-system/releases/download/14.0/haos_ova-14.0.qcow2.xz"
-            url: "https://cloud.centos.org/centos/7/images/CentOS-7-x86_64-GenericCloud.qcow2"
+            url: "https://github.com/home-assistant/operating-system/releases/download/14.0/haos_ova-14.0.qcow2.xz"
   runStrategy: Always
   template:
     metadata:
@@ -34,13 +33,13 @@ spec:
         #    networkName: network/multus-iot
       domain:
         cpu:
-          cores: 1
-        #machine:
-        #  type: q35
-        #firmware:
-        #  bootloader:
-        #    efi:
-        #      secureBoot: false
+          cores: 2
+        machine:
+          type: q35
+        firmware:
+          bootloader:
+            efi:
+              secureBoot: false
         devices:
           interfaces:
             - name: default
@@ -51,7 +50,7 @@ spec:
                 bus: virtio
         resources:
           requests:
-            memory: 2Gi
+            memory: 4Gi
       volumes:
         - dataVolume:
             name: home-assistant-dv
