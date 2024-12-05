@@ -12,7 +12,7 @@ spec:
         {
           "type": "bridge",
           "bridge": "br0",
-          "capabilities": { "mac": true },
+          "capabilities": { "mac": true }
           "ipam": {
             "type": "static",
           }
