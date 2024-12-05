@@ -33,6 +33,7 @@ spec:
               disk:
                 bus: virtio
             - name: cloudinitvolume
+              disk: {}
         resources:
           requests:
             memory: 4Gi
