@@ -41,3 +41,18 @@ spec:
       target:
         group: kubevirt.io
         kind: KubeVirt
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: kubevirt-cdi
+  namespace: flux-system
+spec:
+  interval: 5m
+  prune: true
+  wait: true
+  path: "./deploy"
+  sourceRef:
+    kind: GitRepository
+    name: kubevirt-cdi
+  dependsOn: []
