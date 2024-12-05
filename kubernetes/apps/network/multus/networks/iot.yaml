@@ -10,15 +10,11 @@ spec:
       "name": "multus-iot",
       "plugins": [
         {
-          "type": "macvlan",
-          "master": "eth1",
-          "mode": "bridge",
+          "type": "bridge",
+          "bridge": "br0",
+          "capabilities": { "mac": true },
           "ipam": {
             "type": "static",
-            "routes": [
-              { "dst": "${NET_TRUSTED_CIDR}", "gw": "${NET_IOT_GATEWAY_IP}" },
-              { "dst": "${NET_IOT_CIDR}", "gw": "${NET_IOT_GATEWAY_IP}" }
-            ]
           }
         }
       ]

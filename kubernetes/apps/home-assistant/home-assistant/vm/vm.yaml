@@ -1,0 +1,49 @@
+apiVersion: kubevirt.io/v1
+kind: VirtualMachine
+metadata:
+  labels:
+    kubevirt.io/vm: home-assistant
+  name: home-assistant
+spec:
+  dataVolumeTemplates:
+    - metadata:
+        name: homeassistant-dv
+      spec:
+        pvc:
+          accessModes:
+            - ReadWriteOnce
+          resources:
+            requests:
+              storage: 50Gi
+        source:
+          http:
+            url: "https://github.com/home-assistant/operating-system/releases/download/14.0/haos_ova-14.0.qcow2.xz"
+  runStrategy: Always
+  template:
+    metadata:
+      labels:
+        kubevirt.io/vm: home-assistant
+    spec:
+      networks:
+        - name: "multus-iot"
+          multus:
+            networkName: "multus-iot"
+      domain:
+        cpu:
+          cores: 2
+        devices:
+          interfaces:
+            - name: multus-iot
+              bridge: {}
+          disks:
+            - name: homeassistant-datavolume
+              disk:
+                bus: virtio
+        resources:
+          requests:
+            memory: 4Gi
+      volumes:
+        - dataVolume:
+            name: homeassistant-dv
+          name: homeassistant-datavolume
+
