@@ -29,12 +29,10 @@ spec:
           cores: 1
         devices:
           disks:
-            - volumeName: test-datavolume
-              name: disk0
+            - name: test-datavolume
               disk:
                 bus: virtio
-            - name: cloudinitdisk
-              volumeName: cloudinitvolume
+            - name: cloudinitvolume
               cdrom:
                 bus: virtio
         resources:
