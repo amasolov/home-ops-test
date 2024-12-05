@@ -1,0 +1,59 @@
+apiVersion: kubevirt.io/v1alpha2
+kind: VirtualMachine
+metadata:
+  labels:
+    kubevirt.io/vm: testvm1
+  name: testvm1
+spec:
+  dataVolumeTemplates:
+    - metadata:
+        name: centos7-dv
+      spec:
+        pvc:
+          accessModes:
+            - ReadWriteOnce
+          resources:
+            requests:
+              storage: 10Gi
+        source:
+          http:
+            url: "https://cloud.centos.org/centos/7/images/CentOS-7-x86_64-GenericCloud.qcow2"
+  runStrategy: Always
+  template:
+    metadata:
+      labels:
+        kubevirt.io/vm: testvm1
+    spec:
+      domain:
+        cpu:
+          cores: 1
+        devices:
+          disks:
+            - volumeName: test-datavolume
+              name: disk0
+              disk:
+                bus: virtio
+            - name: cloudinitdisk
+              volumeName: cloudinitvolume
+              cdrom:
+                bus: virtio
+        resources:
+          requests:
+            memory: 4Gi
+      volumes:
+        - dataVolume:
+            name: centos7-dv
+          name: test-datavolume
+        - cloudInitNoCloud:
+            userData: |
+              #cloud-config
+              hostname: testvm1
+              users:
+                - name: kubevirt
+                  gecos: KubeVirt Project
+                  sudo: ALL=(ALL) NOPASSWD:ALL
+                  passwd: $6$JXbc3063IJir.e5h$ypMlYScNMlUtvQ8Il1ldZi/mat7wXTiRioGx6TQmJjTVMandKqr.jJfe99.QckyfH/JJ.OdvLb5/OrCa8ftLr.
+                  shell: /bin/bash
+                  home: /home/kubevirt
+                  lock_passwd: false
+          name: cloudinitvolume
