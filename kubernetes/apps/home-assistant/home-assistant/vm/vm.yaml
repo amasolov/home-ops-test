@@ -7,7 +7,7 @@ metadata:
 spec:
   dataVolumeTemplates:
     - metadata:
-        name: homeassistant-dv
+        name: home-assistant-dv
       spec:
         pvc:
           accessModes:
@@ -27,7 +27,8 @@ spec:
       networks:
         - name: "multus-iot"
           multus:
-            networkName: "multus-iot"
+            default: true
+            networkName: "network/multus-iot"
       domain:
         cpu:
           cores: 2
@@ -36,7 +37,7 @@ spec:
             - name: multus-iot
               bridge: {}
           disks:
-            - name: homeassistant-datavolume
+            - name: home-assistant-datavolume
               disk:
                 bus: virtio
         resources:
@@ -44,6 +45,6 @@ spec:
             memory: 4Gi
       volumes:
         - dataVolume:
-            name: homeassistant-dv
-          name: homeassistant-datavolume
+            name: home-assistant-dv
+          name: home-assistant-datavolume
 
