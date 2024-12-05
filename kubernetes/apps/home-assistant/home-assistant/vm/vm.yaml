@@ -27,7 +27,6 @@ spec:
       networks:
         - name: "multus-iot"
           multus:
-            default: true
             networkName: "network/multus-iot"
       domain:
         cpu:
