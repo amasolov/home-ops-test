@@ -28,7 +28,7 @@ spec:
         - name: "multus-iot"
           multus:
             default: true
-            networkName: "network/multus-iot"
+            networkName: network/multus-iot
       domain:
         cpu:
           cores: 2
@@ -48,7 +48,7 @@ spec:
                 bus: virtio
         resources:
           requests:
-            memory: 4Gi
+            memory: 2Gi
       volumes:
         - dataVolume:
             name: home-assistant-dv
