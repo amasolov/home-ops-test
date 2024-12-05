@@ -17,7 +17,8 @@ spec:
               storage: 40Gi
         source:
           http:
-            url: "https://github.com/home-assistant/operating-system/releases/download/14.0/haos_ova-14.0.qcow2.xz"
+            #url: "https://github.com/home-assistant/operating-system/releases/download/14.0/haos_ova-14.0.qcow2.xz"
+            url: "https://cloud.centos.org/centos/7/images/CentOS-7-x86_64-GenericCloud.qcow2"
   runStrategy: Always
   template:
     metadata:
