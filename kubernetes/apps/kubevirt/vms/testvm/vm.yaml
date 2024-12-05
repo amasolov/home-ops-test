@@ -24,6 +24,10 @@ spec:
       labels:
         kubevirt.io/vm: testvm1
     spec:
+      networks:
+        - name: "iot"
+          multus:
+            networkName: "testvm"
       domain:
         cpu:
           cores: 1
