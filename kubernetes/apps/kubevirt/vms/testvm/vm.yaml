@@ -27,7 +27,7 @@ spec:
       networks:
         - name: "testvm"
           multus:
-            networkName: "testvm"
+            networkName: network/multus-iot
       domain:
         cpu:
           cores: 1
