@@ -25,7 +25,7 @@ spec:
         kubevirt.io/vm: testvm1
     spec:
       networks:
-        - name: "iot"
+        - name: "testvm"
           multus:
             networkName: "testvm"
       domain:
