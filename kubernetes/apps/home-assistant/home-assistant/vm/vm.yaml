@@ -26,7 +26,7 @@ spec:
         kubevirt.io/vm: home-assistant
     spec:
       networks:
-        - name: "multus-iot"
+        - name: nic1
           multus:
             default: true
             networkName: network/multus-iot
@@ -41,7 +41,7 @@ spec:
         #      secureBoot: false
         devices:
           interfaces:
-            - name: multus-iot
+            - name: nic1
               bridge: {}
           disks:
             - name: home-assistant-datavolume
