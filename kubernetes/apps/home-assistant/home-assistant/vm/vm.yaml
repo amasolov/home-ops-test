@@ -9,14 +9,13 @@ spec:
     - metadata:
         name: home-assistant-dv
       spec:
-        pvc:
+        storage:
+          volumeMode: Block
           accessModes:
             - ReadWriteMany
           resources:
             requests:
               storage: 50Gi
-        storage:
-          volumeMode: Block
         source:
           http:
             url: "https://github.com/home-assistant/operating-system/releases/download/14.0/haos_ova-14.0.qcow2.xz"
