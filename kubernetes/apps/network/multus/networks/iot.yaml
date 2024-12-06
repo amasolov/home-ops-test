@@ -10,10 +10,16 @@ spec:
       "name": "multus-iot",
       "plugins": [
         {
-          "type": "bridge",
-          "bridge": "br0",
+          "type": "macvlan",
+          "capabilities": { "ips": true },
+          "master": "eth1",
+          "mode": "bridge",
+          "ipam": {
+            "type":"static"
+            }
+          }, {
           "capabilities": { "mac": true },
-          "ipam": {}
+          "type": "tuning"
         }
       ]
     }
