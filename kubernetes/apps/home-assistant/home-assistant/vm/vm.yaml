@@ -11,10 +11,10 @@ spec:
       spec:
         pvc:
           accessModes:
-            - ReadWriteOnce
+            - ReadWriteMany
           resources:
             requests:
-              storage: 40Gi
+              storage: 50Gi
         source:
           http:
             url: "https://github.com/home-assistant/operating-system/releases/download/14.0/haos_ova-14.0.qcow2.xz"
