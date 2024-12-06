@@ -15,7 +15,10 @@ spec:
           "master": "eth1",
           "mode": "bridge",
           "ipam": {
-            "type":"static"
+            "type":"static",
+            "routes": [
+              { "dst": "192.168.0.0/16", "gw":"192.168.2.1"}
+            ]
             }
           }, {
           "capabilities": { "mac": true },
